@@ -1,18 +1,16 @@
-import express from "express"
-import dotenv from "dotenv"
+import express from "express";
+import dotenv from "dotenv";
 
+dotenv.config({ path: "./.env" });
 
-dotenv.config({path:"./.env"})
+const app = express();
 
-const app = express()
+const PORT = process.env.PORT || 8000;
 
-const PORT = process.env.PORT || 8000
+app.get("/", (req, res) => {
+  res.json({ message: "Hello Guys welcome to LeetLab 🔥🔥🔥" });
+});
 
-app.get("/", (req,res)=>{
-    res.json({"message" : "Server is Up and running"})
-})
-
-app.listen(PORT, (req,res)=>{
-    console.log(`Server is running on port ${PORT}`);
-    
-})
+app.listen(PORT, (req, res) => {
+  console.log(`Server is running on port ${PORT}`);
+});
