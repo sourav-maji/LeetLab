@@ -57,7 +57,7 @@ const register = async (req, res) => {
       message: "Error creating user",
       error,
     });
-  }
+}
 };
 
 const login = async (req, res) => {
@@ -71,7 +71,7 @@ const login = async (req, res) => {
     });
     if (!user) {
       return res.status(401).json({ message: "User Not Found" });
-    }
+}
 
     const isMatched = await bcrypt.compare(password, user.password)
     if(!isMatched){
